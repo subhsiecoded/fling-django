@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Subh's index
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center text-white bg-dark mt-4">
+    Subh is testing this website.
+</h1>
+
+<h2>
+    {% if form.instance.pk%} 
+    Edit Fling
+    {% else %} 
+    Create Fling
+    {% endif %}
+    <form method = "post" enctype="multipart/form-data"
+    class= "form">
+    {% csrf_token %}
+        {{form.as_p}} {# as_p means the form is rendered as paragraph #}
+        <button class="btn btn-warning" type="submit"> Submit </button>
+    </form>
+<a href="{% url 'fling_list' %}">Back to Fling </a>
+{% endblock %} 

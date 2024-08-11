@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Subh's index
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center text-white bg-dark mt-4">
+    Subh is testing this website.
+</h1>
+
+<a class= "btn btn-primary mb-4" href= "{% url 'fling_create' %}"> 
+    Create a Fling
+</a>
+
+<div class= "container wor gap-3">
+    {% for fling in flings %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{fling.photo.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{fling.user.username}}</h5>
+          <p class="card-text">{{fling.text}}</p>
+          <a href="{% url 'fling_edit' fling.id%}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'fling_delete' fling.id%}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+      {# also don't forget to edit the urls.py #}
+    {% endfor %}
+{% endblock %}
