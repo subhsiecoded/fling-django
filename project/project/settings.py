@@ -21,6 +21,20 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 STATIC_URL= '/static/'
 STATICFILES_DIRS= [os.path.join(BASE_DIR, 'static')]
 # next step, you need to add static media to ur urls to, you need to do them in the urls.py file 
+
+LOGIN_URL= '/accounts/login'
+
+LOGIN_URL_REDIRECT= '/index/'
+LOGOUT_URL_REDIRECT= '/index/'
+#now that you have told the settings that the url is for login and logout but it doesn't know what does /account/ mean?,
+#you need to tell it in the urls.py file, you need to add path for login and logout and register
+
+
+
+
+
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
